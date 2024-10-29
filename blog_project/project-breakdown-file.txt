@@ -1,0 +1,5 @@
+Task:
+1. Show Category field in UI
+2. User profile
+3. Title search functionality // Not mendatory
+4. Only required user can add category and post

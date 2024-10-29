@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+  {% if data %}
+    {% for post in data %}
+    <div class="col-sm-6 my-2">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Title: {{ post.title }}</h5>
+          <p class="card-text">Content: {{ post.content }}</p>
+          <h5 class="card-text">
+            Category: {% for catG in post.category.all %} {{ catG.name }} {% endfor %}
+          </h5>
+          <a href="{% url 'edit_post' post.id %}" class="btn btn-primary">Edit</a>
+          <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Delete</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <p>No posts found matching your search.</p>
+  {% endif %}
+</div>
+{% endblock %}
